@@ -28,6 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
@@ -44,6 +45,7 @@
     <ul class="nav-links" id="navLinks" role="list">
       <li><a href="index.html">Accueil</a></li>
       <li><a href="apropos.html">À propos</a></li>
+      <li><a href="tarifs.html">Tarifs</a></li>
       <li><a href="contact.html" class="active btn-nav">Contact</a></li>
     </ul>
   </nav>
@@ -102,20 +104,26 @@
               </div>
               <div class="c-text">
                 <strong>Email</strong>
-                <span>contact@latitude-canine.fr</span>
+                <span>latitude.canine17@gmail.com</span>
               </div>
             </div>
 
-            <div class="contact-item">
-              <div class="c-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                  <circle cx="12" cy="10" r="3"/>
-                </svg>
+            <div class="contact-item contact-item--map">
+              <div class="contact-item-row">
+                <div class="c-icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                </div>
+                <div class="c-text">
+                  <strong>Zone d'intervention</strong>
+                  <span>La Rochelle &amp; environs (17)</span>
+                </div>
               </div>
-              <div class="c-text">
-                <strong>Zone d'intervention</strong>
-                <span>La Rochelle &amp; environs (17)</span>
+
+              <div class="zone-map">
+                <div id="zoneMap" style="width:100%;height:100%" role="img" aria-label="Carte de la zone d'intervention, rayon de 15 km autour de Dompierre-sur-Mer"></div>
               </div>
             </div>
 
@@ -133,13 +141,14 @@
               </div>
 
               <!--
-                FORMSPREE : remplacez YOUR_FORM_ID par votre identifiant Formspree.
-                Créez un compte gratuit sur https://formspree.io
-                puis remplacez l'attribut action ci-dessous.
+                FORMSUBMIT.CO : formulaire relié directement à latitude.canine17@gmail.com,
+                sans création de compte. Au tout premier envoi, FormSubmit adresse un email
+                "Activate Form" à cette adresse — il faut cliquer sur le lien pour activer la
+                réception des messages suivants.
               -->
               <form
                 id="contactForm"
-                action="https://formspree.io/f/YOUR_FORM_ID"
+                action="https://formsubmit.co/ajax/latitude.canine17@gmail.com"
                 method="POST"
                 novalidate
               >
@@ -244,7 +253,7 @@
                 <p class="field-error" id="rgpd-error" role="alert"></p>
 
                 <!-- Honeypot anti-spam -->
-                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
                 <input type="hidden" name="_subject" value="Nouveau message — Latitude Canine">
 
                 <button type="submit" class="btn-submit">
@@ -284,6 +293,7 @@
           <ul>
             <li><a href="index.html">Accueil</a></li>
             <li><a href="apropos.html">À propos</a></li>
+            <li><a href="tarifs.html">Tarifs</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -295,7 +305,7 @@
           </p>
           <p class="footer-contact-line">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            contact@latitude-canine.fr
+            latitude.canine17@gmail.com
           </p>
           <p class="footer-contact-line">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
@@ -310,6 +320,7 @@
     </div>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="js/main.js"></script>
 </body>
 </html>

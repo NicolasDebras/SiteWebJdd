@@ -883,6 +883,174 @@ body.modal-open { overflow: hidden; }
   letter-spacing: 0.04em;
 }
 
+/* =============================================
+   PRICING PAGE
+   ============================================= */
+.pricing-section { padding: var(--pad-section) 0; }
+.pricing-note {
+  max-width: 640px;
+  margin: 0 auto 3rem;
+  text-align: center;
+  color: var(--c-blue-dark);
+  font-size: 0.95rem;
+}
+.pricing-list-card {
+  max-width: 820px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1.5px solid var(--c-light-blue);
+  border-radius: var(--radius);
+  padding: 0.5rem clamp(1.25rem, 4vw, 2.5rem);
+}
+.pricing-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--c-light-blue);
+}
+.pricing-row:last-child { border-bottom: none; }
+.pricing-row-main h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--c-dark-navy);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.02em;
+}
+.pricing-row-main p {
+  font-size: 0.9rem;
+  color: var(--c-blue-dark);
+  line-height: 1.6;
+  margin-bottom: 0.6rem;
+}
+.pricing-row-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+.pricing-row-tags .service-tag,
+.pricing-row-tags .service-duration { margin-top: 0; }
+.pricing-row-amount {
+  flex-shrink: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--c-dark-navy);
+  white-space: nowrap;
+}
+.pricing-row-amount.devis {
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--c-blue-dark);
+}
+@media (max-width: 560px) {
+  .pricing-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+}
+
+/* Formules */
+.formules-section {
+  padding: var(--pad-section) 0;
+  background: var(--c-light-blue);
+  border-top: 1px solid rgba(9, 55, 92, 0.12);
+}
+.formules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: var(--gap);
+  align-items: start;
+}
+.formule-card {
+  position: relative;
+  background: #fff;
+  border-radius: var(--radius);
+  padding: 2.25rem 2rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border: 1.5px solid transparent;
+  transition: all var(--transition);
+}
+.formule-card--featured {
+  border-color: var(--c-secondary);
+  box-shadow: var(--shadow-lg);
+}
+@media (min-width: 769px) {
+  .formule-card--featured { transform: scale(1.04); }
+}
+.formule-badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--c-secondary);
+  color: var(--c-darkest);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4rem 1.1rem;
+  border-radius: 50px;
+  white-space: nowrap;
+}
+.formule-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--c-dark-navy);
+  margin-bottom: 0.4rem;
+}
+.formule-tagline {
+  font-size: 0.85rem;
+  color: var(--c-blue-dark);
+  margin-bottom: 1.25rem;
+}
+.formule-price {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--c-primary);
+  margin-bottom: 1.5rem;
+}
+.formule-price span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--c-blue-dark);
+}
+.formule-features {
+  list-style: none;
+  text-align: left;
+  margin-bottom: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+.formule-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.88rem;
+  color: var(--c-dark-navy);
+  line-height: 1.4;
+}
+.formule-features li svg {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  color: var(--c-primary);
+  margin-top: 0.15rem;
+}
+.formule-card .btn { width: 100%; }
+.btn-outline-blue {
+  background: transparent;
+  color: var(--c-primary);
+  border: 2px solid var(--c-light-blue);
+}
+.btn-outline-blue:hover {
+  background: var(--c-light-blue);
+  border-color: var(--c-mid-blue);
+}
+
 /* Instagram section */
 .insta-section {
   padding: var(--pad-section) 0;
@@ -933,6 +1101,19 @@ body.modal-open { overflow: hidden; }
   padding: 1rem 1.1rem;
   background: var(--c-light-blue);
   border-radius: var(--radius-sm);
+}
+.contact-item--map {
+  flex-direction: column;
+  align-items: stretch;
+}
+.contact-item-row {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.contact-item--map .zone-map {
+  margin-top: 1rem;
+  aspect-ratio: 16/10;
 }
 .c-icon {
   width: 42px; height: 42px;
