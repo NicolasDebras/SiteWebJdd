@@ -217,12 +217,13 @@ if (form) {
         headers: { 'Accept': 'application/json' },
       });
 
-      if (res.ok) {
-        formWrap.style.display = 'none';
-        formSuccess.classList.add('show');
-      } else {
-        throw new Error();
-      }
+      const data = await res.json().catch(() => null);
+      const failed = !res.ok || (data && (data.success === false || data.success === 'false'));
+
+      if (failed) throw new Error(data && data.message ? data.message : 'Submission failed');
+
+      formWrap.style.display = 'none';
+      formSuccess.classList.add('show');
     } catch {
       submitBtn.textContent = originalText;
       submitBtn.disabled = false;
