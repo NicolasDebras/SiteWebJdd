@@ -91,6 +91,7 @@ if (serviceModal) {
     modalIcon.innerHTML = icon ? icon.outerHTML : '';
     modalTitle.textContent = title ? title.textContent : '';
     modalTag.textContent = tag ? tag.textContent : '';
+    modalTag.style.display = tag ? '' : 'none';
     modalBody.textContent = detail ? detail.textContent : '';
 
     lastFocused = document.activeElement;

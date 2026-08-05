@@ -456,7 +456,6 @@ input, textarea, select { font-family: var(--font); }
 .service-duration {
   display: inline-block;
   margin-top: 1.25rem;
-  margin-left: 0.4rem;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -466,10 +465,10 @@ input, textarea, select { font-family: var(--font); }
   background: var(--c-primary);
   border-radius: 50px;
 }
+.service-tag ~ .service-duration { margin-left: 0.4rem; }
 .service-price {
   display: inline-block;
   margin-top: 1.25rem;
-  margin-left: 0.4rem;
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -479,6 +478,7 @@ input, textarea, select { font-family: var(--font); }
   background: var(--c-secondary);
   border-radius: 50px;
 }
+.service-tag ~ .service-price { margin-left: 0.4rem; }
 .modal-price-row {
   display: flex;
   align-items: center;
