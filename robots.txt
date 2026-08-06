@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://latitude-canine.fr/sitemap.xml
+Sitemap: https://www.latitudecanine17.fr/sitemap.xml
