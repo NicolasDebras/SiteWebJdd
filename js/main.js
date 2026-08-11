@@ -132,10 +132,13 @@ if (serviceModal) {
 // ─── ZONE MAP ─────────────────────────────────────────────
 const zoneMapEl = document.getElementById('zoneMap');
 if (zoneMapEl && window.L) {
+  const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
   const zoneCenter = [46.1897, -1.0742];
   const zoneMap = L.map(zoneMapEl, {
     scrollWheelZoom: false,
     zoomControl: true,
+    dragging: !isSmallScreen,
+    touchZoom: !isSmallScreen,
   }).setView(zoneCenter, 9);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
