@@ -382,21 +382,7 @@ input, textarea, select { font-family: var(--font); }
 .services {
   padding: var(--pad-section) 0;
   background: var(--c-cream);
-  position: relative;
-  overflow: hidden;
 }
-.services::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('../img/mer/route-carte.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.3;
-  pointer-events: none;
-}
-.services > .container { position: relative; z-index: 1; }
 .services-header { margin-bottom: clamp(2rem, 5vw, 3.5rem); }
 .services-grid {
   display: grid;
@@ -627,17 +613,6 @@ body.modal-open { overflow: hidden; }
   background: radial-gradient(circle, rgba(37,111,154,0.1) 0%, transparent 70%);
   pointer-events: none;
 }
-.about-teaser::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('../img/mer/route-carte.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.3;
-  pointer-events: none;
-}
 .about-teaser-inner { position: relative; z-index: 1; }
 .about-teaser-inner {
   display: grid;
@@ -749,22 +724,7 @@ body.modal-open { overflow: hidden; }
    ============================================= */
 .legal-section {
   padding: var(--pad-section) 0;
-  background: var(--c-cream);
-  position: relative;
-  overflow: hidden;
 }
-.legal-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('../img/mer/route-carte.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.3;
-  pointer-events: none;
-}
-.legal-section > .container { position: relative; z-index: 1; }
 .legal-content {
   max-width: 760px;
   margin: 0 auto;
@@ -813,22 +773,7 @@ body.modal-open { overflow: hidden; }
    ============================================= */
 .about-main {
   padding: var(--pad-section) 0;
-  background: var(--c-cream);
-  position: relative;
-  overflow: hidden;
 }
-.about-main::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('../img/mer/route-carte.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.3;
-  pointer-events: none;
-}
-.about-main > .container { position: relative; z-index: 1; }
 .about-grid {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
@@ -881,21 +826,7 @@ body.modal-open { overflow: hidden; }
 .values-section {
   padding: var(--pad-section) 0;
   background: var(--c-light-blue);
-  position: relative;
-  overflow: hidden;
 }
-.values-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('../img/mer/route-carte.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.3;
-  pointer-events: none;
-}
-.values-section > .container { position: relative; z-index: 1; }
 .values-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr));
@@ -948,7 +879,7 @@ body.modal-open { overflow: hidden; }
   background-image: url('../img/mer/route-carte.png');
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position: right top;
   opacity: 0.3;
   pointer-events: none;
 }
@@ -989,22 +920,7 @@ body.modal-open { overflow: hidden; }
    ============================================= */
 .pricing-section {
   padding: var(--pad-section) 0;
-  background: var(--c-cream);
-  position: relative;
-  overflow: hidden;
 }
-.pricing-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('../img/mer/route-carte.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.3;
-  pointer-events: none;
-}
-.pricing-section > .container { position: relative; z-index: 1; }
 .pricing-note {
   max-width: 640px;
   margin: 0 auto 3rem;
@@ -1079,21 +995,7 @@ body.modal-open { overflow: hidden; }
   padding: var(--pad-section) 0;
   background: var(--c-light-blue);
   border-top: 1px solid rgba(9, 55, 92, 0.12);
-  position: relative;
-  overflow: hidden;
 }
-.formules-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('../img/mer/route-carte.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.3;
-  pointer-events: none;
-}
-.formules-section > .container { position: relative; z-index: 1; }
 .formules-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
@@ -1206,6 +1108,7 @@ body.modal-open { overflow: hidden; }
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+  transform: scaleX(-1);
   opacity: 0.3;
   pointer-events: none;
 }
@@ -1235,22 +1138,7 @@ body.modal-open { overflow: hidden; }
    ============================================= */
 .contact-section {
   padding: var(--pad-section) 0;
-  background: var(--c-cream);
-  position: relative;
-  overflow: hidden;
 }
-.contact-section::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url('../img/mer/route-carte.png');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  opacity: 0.3;
-  pointer-events: none;
-}
-.contact-section > .container { position: relative; z-index: 1; }
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1.6fr;
