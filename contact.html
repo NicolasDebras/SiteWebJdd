@@ -141,17 +141,17 @@
               </div>
 
               <!--
-                FORMSUBMIT.CO : formulaire relié à latitude.canine17@gmail.com via un
-                identifiant de formulaire dédié (au lieu de l'email en clair, recommandé par
-                FormSubmit pour la prod). Cet identifiant a été activé une première fois en
-                cliquant "Activate Form" dans l'email reçu de FormSubmit.
+                WEB3FORMS.COM : formulaire relié à latitude.canine17@gmail.com via une
+                access_key dédiée. Pas d'étape d'activation par email requise.
               -->
               <form
                 id="contactForm"
-                action="https://formsubmit.co/ajax/46931948d859d6c0539604f5ce382260"
+                action="https://api.web3forms.com/submit"
                 method="POST"
                 novalidate
               >
+                <input type="hidden" name="access_key" value="ac79e25a-c636-46ca-874c-35790cd72060">
+                <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
                 <div class="form-row">
                   <div class="form-group">
                     <label for="prenom">Prénom <span class="req">*</span></label>
@@ -252,9 +252,7 @@
                 </div>
                 <p class="field-error" id="rgpd-error" role="alert"></p>
 
-                <!-- Honeypot anti-spam -->
-                <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
-                <input type="hidden" name="_subject" value="Nouveau message — Latitude Canine">
+                <input type="hidden" name="subject" value="Nouveau message — Latitude Canine">
 
                 <button type="submit" class="btn-submit">
                   Envoyer le message
