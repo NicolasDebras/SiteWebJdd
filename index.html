@@ -35,18 +35,20 @@
   {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": "https://www.latitudecanine17.fr/#business",
     "name": "Latitude Canine 17",
+    "alternateName": "Latitude Canine",
     "image": "https://www.latitudecanine17.fr/img/og-image.png",
     "url": "https://www.latitudecanine17.fr/",
-    "telephone": "+33-6-02-15-76-44",
+    "telephone": "+33 6 02 15 76 44",
     "email": "latitude.canine17@gmail.com",
-    "description": "Éducateur comportementaliste canin certifié près de La Rochelle. Méthodes positives : cours particuliers, cours collectifs, rééducation comportementale, promenades éducatives.",
-    "priceRange": "€€",
+    "description": "Éducateur comportementaliste canin certifié à La Rochelle et ses environs. Méthodes positives : bilan comportemental, éducation du chiot, cours individuels et collectifs, gestion de la réactivité, promenades et dog walking.",
+    "priceRange": "10€ - 460€",
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": "La Rochelle",
+      "addressLocality": "Dompierre-sur-Mer",
+      "postalCode": "17139",
       "addressRegion": "Charente-Maritime",
-      "postalCode": "17000",
       "addressCountry": "FR"
     },
     "geo": {
@@ -55,12 +57,41 @@
       "longitude": -1.0742
     },
     "areaServed": [
-      "La Rochelle", "Rochefort", "Saintes", "Île de Ré",
-      "Châtelaillon-Plage", "Surgères", "Tonnay-Charente"
+      {
+        "@type": "City",
+        "name": "La Rochelle"
+      },
+      {
+        "@type": "City",
+        "name": "Sainte-Soulle"
+      },
+      {
+        "@type": "Place",
+        "name": "Île de Ré"
+      },
+      {
+        "@type": "City",
+        "name": "Châtelaillon-Plage"
+      },
+      {
+        "@type": "City",
+        "name": "L'Houmeau"
+      },
+      {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": 46.1897,
+          "longitude": -1.0742
+        },
+        "geoRadius": 45000
+      }
     ],
     "founder": {
       "@type": "Person",
-      "name": "Jean-David Debras"
+      "@id": "https://www.latitudecanine17.fr/apropos.html#jean-david-debras",
+      "name": "Jean-David Debras",
+      "url": "https://www.latitudecanine17.fr/apropos.html"
     },
     "sameAs": [
       "https://www.instagram.com/latitude.canine17/"
@@ -355,7 +386,7 @@
           <p style="color:var(--c-blue-dark);margin-bottom:1.25rem;font-size:0.98rem">Je me déplace à domicile ou vous reçois dans des espaces naturels adaptés — plages, forêts, espaces verts — pour des séances dans des conditions réelles et stimulantes.</p>
           <div class="zone-tags">
             <span class="zone-tag">La Rochelle</span>
-            <span class="zone-tag">Sainte Soulle</span>
+            <span class="zone-tag">Sainte-Soulle</span>
             <span class="zone-tag">Île de Ré</span>
             <span class="zone-tag">Châtelaillon-Plage</span>
             <span class="zone-tag">L'Houmeau</span>
