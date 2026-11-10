@@ -134,8 +134,51 @@ if (serviceModal) {
 }
 
 // ─── ZONE MAP ─────────────────────────────────────────────
+// Leaflet (CSS + JS) n'est chargé qu'à l'approche de la carte, pour ne pas
+// bloquer l'affichage de la page.
 const zoneMapEl = document.getElementById('zoneMap');
-if (zoneMapEl && window.L) {
+const LEAFLET = {
+  css: 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css',
+  cssSri: 'sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=',
+  js: 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js',
+  jsSri: 'sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=',
+};
+
+function loadLeaflet() {
+  return new Promise((resolve, reject) => {
+    if (window.L) return resolve();
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.href = LEAFLET.css;
+    link.integrity = LEAFLET.cssSri;
+    link.crossOrigin = '';
+    document.head.appendChild(link);
+    const script = document.createElement('script');
+    script.src = LEAFLET.js;
+    script.integrity = LEAFLET.jsSri;
+    script.crossOrigin = '';
+    script.onload = () => resolve();
+    script.onerror = reject;
+    document.body.appendChild(script);
+  });
+}
+
+if (zoneMapEl) {
+  const startMap = () => loadLeaflet().then(initZoneMap).catch(() => {});
+  if ('IntersectionObserver' in window) {
+    const mapObserver = new IntersectionObserver((entries) => {
+      if (entries.some(e => e.isIntersecting)) {
+        mapObserver.disconnect();
+        startMap();
+      }
+    }, { rootMargin: '300px 0px' });
+    mapObserver.observe(zoneMapEl);
+  } else {
+    startMap();
+  }
+}
+
+function initZoneMap() {
   const isSmallScreen = window.matchMedia('(max-width: 768px)').matches;
   const zoneCenter = [46.1897, -1.0742];
   const zoneMap = L.map(zoneMapEl, {

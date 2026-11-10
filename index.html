@@ -25,10 +25,7 @@
   <meta name="twitter:description" content="Éducateur comportementaliste certifié près de La Rochelle. Méthodes positives, cours particuliers, rééducation comportementale et cours collectifs.">
   <meta name="twitter:image" content="https://www.latitudecanine17.fr/img/og-image.png">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="preload" href="fonts/josefin-sans-normal-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="css/styles.css">
 
   <script type="application/ld+json">
@@ -39,6 +36,7 @@
     "name": "Latitude Canine 17",
     "alternateName": "Latitude Canine",
     "image": "https://www.latitudecanine17.fr/img/og-image.png",
+    "logo": "https://www.latitudecanine17.fr/img/logo-latitude-canine.png",
     "url": "https://www.latitudecanine17.fr/",
     "telephone": "+33 6 02 15 76 44",
     "email": "latitude.canine17@gmail.com",
@@ -105,7 +103,7 @@
   <div class="nav-overlay" id="navOverlay"></div>
   <nav class="navbar" id="navbar" role="navigation" aria-label="Navigation principale">
     <a href="/" class="navbar-logo" aria-label="Latitude Canine – Accueil">
-      <img src="img/Latitude_canine-removebg-preview.png" alt="Latitude Canine">
+      <img src="img/logo-latitude-canine-128.webp" alt="Latitude Canine" width="46" height="46">
     </a>
     <button class="hamburger" id="hamburger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
@@ -127,7 +125,7 @@
     </div>
 
     <div class="hero-content">
-      <img src="img/Latitude_canine-removebg-preview.png" alt="Latitude Canine" class="hero-logo">
+      <img src="img/logo-latitude-canine.webp" srcset="img/logo-latitude-canine-256.webp 256w, img/logo-latitude-canine.webp 420w" sizes="(max-width: 600px) 130px, 210px" alt="Latitude Canine" class="hero-logo" width="210" height="210" fetchpriority="high">
       <h1 class="hero-title" id="hero-title">
         Latitude canine<br><span>"Gardez le cap, et trouvez la bonne attitude"</span>
       </h1>
@@ -176,7 +174,7 @@
       </div>
       <div class="services-grid">
                 <!-- Bilan comportementaliste -->
-        <article class="service-card fade-in" data-expandable data-image="img/SURPRIS.png" data-price="80€">
+        <article class="service-card fade-in" data-expandable data-image="img/surpris.webp" data-price="80€">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/>
@@ -198,7 +196,7 @@
         </article>
       
                 <!-- Cours chiot -->
-        <article class="service-card fade-in" data-expandable data-image="img/BEBE.png" data-price="80€">
+        <article class="service-card fade-in" data-expandable data-image="img/bebe.webp" data-price="80€">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
@@ -217,7 +215,7 @@
           </a>
         </article>
         <!-- Cours particuliers -->
-        <article class="service-card fade-in" data-expandable data-image="img/EN%20LAISSE.png" data-price="55€">
+        <article class="service-card fade-in" data-expandable data-image="img/en-laisse.webp" data-price="55€">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <circle cx="12" cy="12" r="10"/>
@@ -241,7 +239,7 @@
 
 
         <!-- Cours collectifs -->
-        <article class="service-card fade-in delay-1" data-expandable data-image="img/GENTIL.png" data-price="15€">
+        <article class="service-card fade-in delay-1" data-expandable data-image="img/gentil.webp" data-price="15€">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -288,7 +286,7 @@
 
 
         <!-- Cours chien à problème -->
-        <article class="service-card fade-in delay-1" data-expandable data-image="img/AGRESSIF.png" data-price="Sur devis">
+        <article class="service-card fade-in delay-1" data-expandable data-image="img/agressif.webp" data-price="Sur devis">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <circle cx="12" cy="12" r="10"/>
@@ -310,7 +308,7 @@
         </article>
 
         <!-- Sortie de chien -->
-        <article class="service-card fade-in delay-2" data-expandable data-image="img/EN%20LAISSE.png" data-price="20€">
+        <article class="service-card fade-in delay-2" data-expandable data-image="img/en-laisse.webp" data-price="20€">
           <div class="service-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
@@ -413,7 +411,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="img/Latitude_canine-removebg-preview.png" alt="Latitude Canine">
+          <img src="img/logo-latitude-canine-128.webp" alt="Latitude Canine" width="50" height="50" loading="lazy">
           <p class="footer-desc">Éducateur canin certifié basé près de La Rochelle. Méthodes positives, résultats durables, relation renforcée.</p>
         </div>
         <div class="footer-col">
@@ -448,7 +446,6 @@
     </div>
   </footer>
 
-  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
   <script src="js/main.js"></script>
 </body>
 </html>

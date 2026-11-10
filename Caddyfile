@@ -32,6 +32,18 @@
 		-Server
 	}
 
+	# ── Cache navigateur ──────────────────────────────────────
+	# Polices : ne changent jamais (1 an). Images : 30 jours (renommer un fichier
+	# modifié pour forcer la mise à jour). HTML, CSS, JS : revalidés à chaque visite
+	# (réponse 304 légère si rien n'a changé), pour que les modifications soient vues
+	# tout de suite.
+	@fonts path /fonts/*
+	header @fonts Cache-Control "public, max-age=31536000, immutable"
+	@images path /img/* /favicon* *.png *.jpg *.webp *.svg *.ico
+	header @images Cache-Control "public, max-age=2592000"
+	@revalidate path / *.html /css/* /js/* /sitemap.xml /robots.txt
+	header @revalidate Cache-Control "no-cache"
+
 	root * {{.StaticFileRoot}}
 
 	# ── Redirections 301 : une seule URL par page ──────────────
