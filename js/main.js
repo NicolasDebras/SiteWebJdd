@@ -60,6 +60,7 @@ if (serviceModal) {
   const modalPriceRow = document.getElementById('modalPriceRow');
   const modalBody  = document.getElementById('modalBody');
   const modalClose = document.getElementById('modalClose');
+  const modalLink  = document.getElementById('modalLink');
   let lastFocused = null;
 
   function openModal(card) {
@@ -94,6 +95,12 @@ if (serviceModal) {
     modalTag.style.display = tag ? '' : 'none';
     modalBody.textContent = detail ? detail.textContent : '';
 
+    const pageLink = card.querySelector('a.service-toggle');
+    if (modalLink) {
+      modalLink.style.display = pageLink ? '' : 'none';
+      if (pageLink) modalLink.href = pageLink.getAttribute('href');
+    }
+
     lastFocused = document.activeElement;
     serviceModal.classList.add('open');
     serviceModal.setAttribute('aria-hidden', 'false');
@@ -108,15 +115,12 @@ if (serviceModal) {
     if (lastFocused) lastFocused.focus();
   }
 
+  // Clic sur la carte : aperçu dans la fenêtre. Le lien « Voir le détail » mène
+  // directement à la page de la prestation (et reste accessible au clavier).
   document.querySelectorAll('.service-card[data-expandable]').forEach(card => {
-    card.setAttribute('tabindex', '0');
-    card.setAttribute('role', 'button');
-    card.addEventListener('click', () => openModal(card));
-    card.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        openModal(card);
-      }
+    card.addEventListener('click', (e) => {
+      if (e.target.closest('a')) return;
+      openModal(card);
     });
   });
 

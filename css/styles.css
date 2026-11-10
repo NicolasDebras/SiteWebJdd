@@ -1425,3 +1425,99 @@ select.form-control { cursor: pointer; }
 .footer-bottom p { font-size: 0.78rem; color: rgba(255, 255, 255, 0.35); }
 .footer-bottom a { color: rgba(255, 255, 255, 0.45); transition: color var(--transition); font-size: 0.78rem; }
 .footer-bottom a:hover { color: white; }
+
+/* =============================================
+   PAGES PRESTATIONS
+   ============================================= */
+.prestation-section {
+  padding: var(--pad-section) 0;
+}
+.prestation-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
+}
+.prestation-grid .legal-content {
+  max-width: none;
+  margin: 0;
+}
+.prestation-aside {
+  position: sticky;
+  top: calc(var(--nav-h) + 1.5rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.prestation-illustration {
+  width: 100%;
+  max-width: 200px;
+  height: auto;
+}
+.prestation-infos {
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+}
+.prestation-infos .pricing-row {
+  padding: 1rem 0;
+  flex-direction: row;
+  align-items: center;
+}
+.prestation-infos .service-tag,
+.prestation-infos .service-duration { margin: 0; text-align: right; }
+.prestation-info-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-blue-dark);
+}
+.prestation-aside .btn { width: 100%; }
+.prestation-aside-note {
+  font-size: 0.85rem;
+  color: var(--c-blue-dark);
+  text-align: center;
+}
+@media (max-width: 900px) {
+  .prestation-grid { grid-template-columns: 1fr; }
+  .prestation-aside { position: static; max-width: 420px; width: 100%; margin: 0 auto; }
+}
+.prestation-others {
+  padding: 0 0 var(--pad-section);
+}
+.prestation-links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  margin-top: 1.5rem;
+}
+.prestation-links a {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  border-radius: 50px;
+  background: #fff;
+  border: 1.5px solid var(--c-light-blue);
+  color: var(--c-primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: all var(--transition);
+}
+.prestation-links a:hover {
+  background: var(--c-light-blue);
+  border-color: var(--c-mid-blue);
+}
+.prestation-others-tarifs {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+.prestation-others-tarifs a {
+  color: var(--c-primary);
+  font-weight: 700;
+  text-decoration: underline;
+}
+.modal-link {
+  width: 100%;
+  margin-top: 1.5rem;
+}
