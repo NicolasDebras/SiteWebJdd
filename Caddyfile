@@ -1,0 +1,70 @@
+# Configuration du serveur Caddy utilisée par Railway (builder Railpack « staticfile »).
+# Ce fichier remplace entièrement le Caddyfile par défaut de Railpack : il en reprend
+# le contenu et ajoute les redirections 301 propres au site.
+# {{.StaticFileRoot}} est remplacé par Railpack au moment du build.
+{
+	admin off
+	persist_config off
+	auto_https off
+
+	log {
+		format json
+	}
+
+	servers {
+		trusted_proxies static private_ranges
+	}
+}
+
+:{$PORT:80} {
+	log {
+		format json
+	}
+
+	respond /health 200
+
+	# En-têtes de sécurité (identiques au défaut Railpack)
+	header {
+		X-XSS-Protection "1; mode=block"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Content-Security-Policy "default-src 'self'; img-src 'self' data: https: *; style-src 'self' 'unsafe-inline' https: *; script-src 'self' 'unsafe-inline' https: *; font-src 'self' data: https: *; connect-src 'self' https: *; media-src 'self' https: *; object-src 'none'; frame-src 'self' https: *;"
+		-Server
+	}
+
+	root * {{.StaticFileRoot}}
+
+	# ── Redirections 301 : une seule URL par page ──────────────
+	# /index.html et /index → /
+	redir /index.html / 301
+	redir /index / 301
+
+	# /tarifs → /tarifs.html (URL sans extension dont la page .html existe)
+	@sansExtension {
+		path_regexp ^/[a-z0-9-]+$
+		not path /index
+		file {path}.html
+	}
+	redir @sansExtension {path}.html 301
+
+	# Fichiers statiques
+	file_server {
+		hide .git
+		hide .env*
+		hide .DS_Store
+		hide Caddyfile
+	}
+
+	encode {
+		gzip
+		zstd
+	}
+
+	try_files {path} {path}.html {path}/index.html
+
+	# Pages d'erreur : /404.html est servie avec le code 404
+	handle_errors {
+		rewrite * /{err.status_code}.html
+		file_server
+	}
+}
