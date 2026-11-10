@@ -1521,3 +1521,12 @@ select.form-control { cursor: pointer; }
   width: 100%;
   margin-top: 1.5rem;
 }
+.pricing-row-main h3 a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-color: var(--c-light-blue);
+  text-underline-offset: 0.2em;
+  transition: color var(--transition), text-decoration-color var(--transition);
+}
+.pricing-row-main h3 a:hover { color: var(--c-primary); text-decoration-color: currentColor; }
+.pricing-row-main h3 { margin-bottom: 0.6rem; }
