@@ -51,8 +51,20 @@ if (fadeEls.length) {
 // ─── SERVICE CARD MODAL ────────────────────────────────────
 const serviceModal = document.getElementById('serviceModal');
 if (serviceModal) {
-  const modalImage = document.getElementById('modalImage');
   const modalIcon  = document.getElementById('modalIcon');
+  // L'image de la fenêtre n'existe pas dans le HTML (pas de <img> sans src) :
+  // elle est créée à la première ouverture.
+  let modalImage = null;
+  function getModalImage() {
+    if (!modalImage) {
+      modalImage = document.createElement('img');
+      modalImage.className = 'modal-image';
+      modalImage.width = 440;
+      modalImage.height = 603;
+      modalIcon.parentNode.insertBefore(modalImage, modalIcon);
+    }
+    return modalImage;
+  }
   const modalTitle = document.getElementById('modalTitle');
   const modalTag   = document.getElementById('modalTag');
   const modalDuration = document.getElementById('modalDuration');
@@ -79,13 +91,16 @@ if (serviceModal) {
     modalPriceRow.style.display = price ? '' : 'none';
 
     if (image) {
-      modalImage.src = image;
-      modalImage.alt = title ? title.textContent : '';
-      modalImage.classList.add('show');
+      const img = getModalImage();
+      img.src = image;
+      img.alt = '';
+      img.classList.add('show');
       modalIcon.style.display = 'none';
     } else {
-      modalImage.classList.remove('show');
-      modalImage.src = '';
+      if (modalImage) {
+        modalImage.classList.remove('show');
+        modalImage.removeAttribute('src');
+      }
       modalIcon.style.display = '';
     }
 
@@ -274,6 +289,7 @@ if (form) {
       if (failed) throw new Error(data && data.message ? data.message : 'Submission failed');
 
       formWrap.style.display = 'none';
+      formSuccess.hidden = false;
       formSuccess.classList.add('show');
     } catch {
       submitBtn.textContent = originalText;
